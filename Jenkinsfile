@@ -45,6 +45,11 @@ pipeline {
             sh 'mvn clean test -Dtest=com.esprit.examen.services.ProduiServiceImplTest -Dmaven.test.failure.ignore=true'  
             }
         }
+        stage("Docker-compose") {
+            steps{
+                sh 'docker-compose up -d'
+                        }
+            }
         stage('MVN SONARQUBE') {
             steps {
                 sh 'mvn sonar:sonar  -Dsonar.login=admin -Dsonar.password=eya'
@@ -74,11 +79,7 @@ pipeline {
 				sh 'docker push $DOCKERHUB_CREDENTIALS_USR/achat'
 			}
 		} 
-		 stage("Docker-compose") {
-            steps{
-                    sh 'docker-compose up -d'
-                }
-        }
+
     }
         post {
                 success {
