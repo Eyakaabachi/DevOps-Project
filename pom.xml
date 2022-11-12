@@ -98,28 +98,9 @@
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
+
 					</execution>
 					<!-- attached to Maven test phase -->
-					<execution>
-						<id>jacoco-check</id>
-						<goals>
-							<goal>check</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<rule>
-									<element>PACKAGE</element>
-									<limits>
-										<limit>
-											<counter>LINE</counter>
-											<value>COVEREDRATIO</value>
-											<minimum>0.50</minimum>
-										</limit>
-									</limits>
-								</rule>
-							</rules>
-						</configuration>
-					</execution>
 					<execution>
 						<id>report</id>
 						<phase>test</phase>
@@ -150,6 +131,10 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19.1</version> <!-- matters until now-->
+				<configuration>
+					<!-- Sets the VM argument line used when unit tests are run. -->
+
+				</configuration>
 				<dependencies>
 					<!-- to let surefire to run JUnit 4 but also JUnit 5 tests -->
 					<dependency>
