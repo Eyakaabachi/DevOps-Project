@@ -8,9 +8,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class TpAchatProjectApplication {
+public class tpachatprojectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TpAchatProjectApplication.class, args);
+		SpringApplication.run(tpachatprojectApplication.class, args);
 }
 }
